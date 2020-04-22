@@ -64,9 +64,6 @@ type APIClient struct {
 
 	 // API Services
 	AssemblyApi	*AssemblyApiService
-	FileApi	*FileApiService
-	FolderApi	*FolderApiService
-	InfoApi	*InfoApiService
 }
 
 type service struct {
@@ -100,9 +97,6 @@ func NewAPIClient(cfg *Configuration) (client *APIClient, err error) {
 
 	// API Services
 	c.AssemblyApi = (*AssemblyApiService)(&c.common)
-	c.FileApi = (*FileApiService)(&c.common)
-	c.FolderApi = (*FolderApiService)(&c.common)
-	c.InfoApi = (*InfoApiService)(&c.common)
 
 	return c, nil
 }

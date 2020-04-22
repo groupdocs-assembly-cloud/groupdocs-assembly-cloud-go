@@ -22,7 +22,7 @@
     "/assembly/formats": {
       "get": {
         "tags": [
-          "Info"
+          "Assembly"
         ],
         "summary": "Retrieves list of supported file formats.",
         "operationId": "GetSupportedFileFormats",
@@ -75,11 +75,11 @@
         ],
         "parameters": [
           {
-            "name": "AssembleData",
+            "name": "AssembleOptions",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AssembleOptionsData"
+              "$ref": "#/definitions/AssembleOptions"
             },
             "x-nullable": true,
             "description": "Assemble Options. It should be JSON with TemplateName, SaveFormat, ReportData and etc.\n            "
@@ -114,7 +114,7 @@
     "/assembly/storage/file/{path}": {
       "get": {
         "tags": [
-          "File"
+          "Assembly"
         ],
         "summary": "Download file",
         "operationId": "DownloadFile",
@@ -177,13 +177,11 @@
       },
       "put": {
         "tags": [
-          "File"
+          "Assembly"
         ],
         "summary": "Upload file",
         "operationId": "UploadFile",
         "consumes": [
-          "application/json",
-          "application/xml",
           "multipart/form-data"
         ],
         "produces": [
@@ -237,7 +235,7 @@
       },
       "delete": {
         "tags": [
-          "File"
+          "Assembly"
         ],
         "summary": "Delete file",
         "operationId": "DeleteFile",
@@ -294,7 +292,7 @@
     "/assembly/storage/file/copy/{srcPath}": {
       "put": {
         "tags": [
-          "File"
+          "Assembly"
         ],
         "summary": "Copy file",
         "operationId": "CopyFile",
@@ -366,7 +364,7 @@
     "/assembly/storage/file/move/{srcPath}": {
       "put": {
         "tags": [
-          "File"
+          "Assembly"
         ],
         "summary": "Move file",
         "operationId": "MoveFile",
@@ -441,7 +439,7 @@
     "/assembly/storage/folder/{path}": {
       "get": {
         "tags": [
-          "Folder"
+          "Assembly"
         ],
         "summary": "Get all files and folders within a folder",
         "operationId": "GetFilesList",
@@ -496,7 +494,7 @@
       },
       "put": {
         "tags": [
-          "Folder"
+          "Assembly"
         ],
         "summary": "Create the folder",
         "operationId": "CreateFolder",
@@ -544,7 +542,7 @@
       },
       "delete": {
         "tags": [
-          "Folder"
+          "Assembly"
         ],
         "summary": "Delete folder",
         "operationId": "DeleteFolder",
@@ -602,7 +600,7 @@
     "/assembly/storage/folder/copy/{srcPath}": {
       "put": {
         "tags": [
-          "Folder"
+          "Assembly"
         ],
         "summary": "Copy folder",
         "operationId": "CopyFolder",
@@ -667,7 +665,7 @@
     "/assembly/storage/folder/move/{srcPath}": {
       "put": {
         "tags": [
-          "Folder"
+          "Assembly"
         ],
         "summary": "Move folder",
         "operationId": "MoveFolder",
@@ -850,7 +848,7 @@
         }
       }
     },
-    "AssembleOptionsData": {
+    "AssembleOptions": {
       "type": "object",
       "description": "Assemble options data which is using for specifying assemble options, like template name, save format, report data and etc.",
       "additionalProperties": false,

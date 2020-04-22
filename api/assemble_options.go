@@ -26,7 +26,7 @@
 package api
 
 // Assemble options data which is using for specifying assemble options, like template name, save format, report data and etc.
-type AssembleOptionsData struct {
+type AssembleOptions struct {
 
 	// Gets or sets the template name which is located on storage.
 	TemplateFileInfo *TemplateFileInfo `json:"TemplateFileInfo,omitempty"`
@@ -40,10 +40,10 @@ type AssembleOptionsData struct {
 	// Gets or sets result path of a built document.
 	OutputPath string `json:"OutputPath,omitempty"`
 }
-type IAssembleOptionsData interface {
-	IsAssembleOptionsData() bool
+type IAssembleOptions interface {
+	IsAssembleOptions() bool
 }
-func (AssembleOptionsData) IsAssembleOptionsData() bool {
+func (AssembleOptions) IsAssembleOptions() bool {
 	return true;
 }
 

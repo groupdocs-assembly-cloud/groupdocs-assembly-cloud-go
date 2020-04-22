@@ -25,22 +25,15 @@
 package api_test
 
 import (
-	"bytes"
 	"context"
-	"fmt"
 	"io/ioutil"
-	"log"
 	"os"
 	"path"
 	"path/filepath"
-	"regexp"
 	"runtime"
-	"strings"
 	"testing"
-	"time"
 
 	"github.com/groupdocs-assembly-cloud/groupdocs-assembly-cloud-go/api"
-	"github.com/google/uuid"
 )
 var remoteBaseTestDataFolder string = "Temp/SdkTests/TestData"
 
@@ -93,7 +86,7 @@ func UploadNextFileToStorage(t *testing.T, ctx context.Context, client *api.APIC
 		t.Error(fileErr)
 	}
 
-	_, _, err := client.FileApi.UploadFile(ctx, file, path, nil)
+	_, _, err := client.AssemblyApi.UploadFile(ctx, file, path, nil)
 	if err != nil {
 		t.Error(err)
 	}
@@ -103,26 +96,22 @@ func TestAssembleDocument(t *testing.T) {
 
 	format := "pdf"
 	localFilePath := GetLocalPath("TableFeatures.odt")
-	document, fileErr := os.Open(localFilePath)
-	if fileErr != nil {
-		t.Error(fileErr)
-	}
 
     remoteName := path.Join(remoteBaseTestDataFolder, "Go", "TableFeatures.odt")
-	config := ReadConfiguration(t)
-	client, ctx := PrepareTest(t, config)
+    
+    client, ctx := UploadFileToStorage(t, localFilePath, remoteName)
     data, fileErr := ioutil.ReadFile(GetLocalPath("TableData.json"))
     if fileErr != nil {
 		t.Error(fileErr)
 	}
     templateInfo := api.TemplateFileInfo{
-        FilePath: remoteName,    
+        FilePath: remoteName,
     }
     
-    assembleData := api.AssembleOptionsData{
+    assembleData := api.AssembleOptions{
         TemplateFileInfo: &templateInfo,
-        SaveFormat: "pdf",
-        ReportData: data,
+        SaveFormat: format,
+        ReportData: string(data),
     }
 
 	output, err := client.AssemblyApi.AssembleDocument(ctx, assembleData)

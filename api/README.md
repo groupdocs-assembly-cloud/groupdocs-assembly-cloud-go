@@ -22,23 +22,23 @@ All URIs are relative to *https://localhost/v1.0*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AssemblyApi* | [**AssembleDocument**](docs/AssemblyApi.md#assembledocument) | **Post** /assembly/assemble | Builds a document using document template and XML or JSON data passed in request.
-*FileApi* | [**CopyFile**](docs/FileApi.md#copyfile) | **Put** /assembly/storage/file/copy/{srcPath} | Copy file
-*FileApi* | [**DeleteFile**](docs/FileApi.md#deletefile) | **Delete** /assembly/storage/file/{path} | Delete file
-*FileApi* | [**DownloadFile**](docs/FileApi.md#downloadfile) | **Get** /assembly/storage/file/{path} | Download file
-*FileApi* | [**MoveFile**](docs/FileApi.md#movefile) | **Put** /assembly/storage/file/move/{srcPath} | Move file
-*FileApi* | [**UploadFile**](docs/FileApi.md#uploadfile) | **Put** /assembly/storage/file/{path} | Upload file
-*FolderApi* | [**CopyFolder**](docs/FolderApi.md#copyfolder) | **Put** /assembly/storage/folder/copy/{srcPath} | Copy folder
-*FolderApi* | [**CreateFolder**](docs/FolderApi.md#createfolder) | **Put** /assembly/storage/folder/{path} | Create the folder
-*FolderApi* | [**DeleteFolder**](docs/FolderApi.md#deletefolder) | **Delete** /assembly/storage/folder/{path} | Delete folder
-*FolderApi* | [**GetFilesList**](docs/FolderApi.md#getfileslist) | **Get** /assembly/storage/folder/{path} | Get all files and folders within a folder
-*FolderApi* | [**MoveFolder**](docs/FolderApi.md#movefolder) | **Put** /assembly/storage/folder/move/{srcPath} | Move folder
-*InfoApi* | [**GetSupportedFileFormats**](docs/InfoApi.md#getsupportedfileformats) | **Get** /assembly/formats | Retrieves list of supported file formats.
+*AssemblyApi* | [**CopyFile**](docs/AssemblyApi.md#copyfile) | **Put** /assembly/storage/file/copy/{srcPath} | Copy file
+*AssemblyApi* | [**CopyFolder**](docs/AssemblyApi.md#copyfolder) | **Put** /assembly/storage/folder/copy/{srcPath} | Copy folder
+*AssemblyApi* | [**CreateFolder**](docs/AssemblyApi.md#createfolder) | **Put** /assembly/storage/folder/{path} | Create the folder
+*AssemblyApi* | [**DeleteFile**](docs/AssemblyApi.md#deletefile) | **Delete** /assembly/storage/file/{path} | Delete file
+*AssemblyApi* | [**DeleteFolder**](docs/AssemblyApi.md#deletefolder) | **Delete** /assembly/storage/folder/{path} | Delete folder
+*AssemblyApi* | [**DownloadFile**](docs/AssemblyApi.md#downloadfile) | **Get** /assembly/storage/file/{path} | Download file
+*AssemblyApi* | [**GetFilesList**](docs/AssemblyApi.md#getfileslist) | **Get** /assembly/storage/folder/{path} | Get all files and folders within a folder
+*AssemblyApi* | [**GetSupportedFileFormats**](docs/AssemblyApi.md#getsupportedfileformats) | **Get** /assembly/formats | Retrieves list of supported file formats.
+*AssemblyApi* | [**MoveFile**](docs/AssemblyApi.md#movefile) | **Put** /assembly/storage/file/move/{srcPath} | Move file
+*AssemblyApi* | [**MoveFolder**](docs/AssemblyApi.md#movefolder) | **Put** /assembly/storage/folder/move/{srcPath} | Move folder
+*AssemblyApi* | [**UploadFile**](docs/AssemblyApi.md#uploadfile) | **Put** /assembly/storage/file/{path} | Upload file
 
 
 ## Documentation For Models
 
  - [ApiError](docs/ApiError.md)
- - [AssembleOptionsData](docs/AssembleOptionsData.md)
+ - [AssembleOptions](docs/AssembleOptions.md)
  - [AssemblyResponse](docs/AssemblyResponse.md)
  - [ErrorDetails](docs/ErrorDetails.md)
  - [FileResponse](docs/FileResponse.md)
