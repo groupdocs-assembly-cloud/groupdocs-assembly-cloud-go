@@ -17,7 +17,7 @@ node('windows2019') {
 		}
 		gitlabCommitStatus("tests") {
 			stage('tests') {
-				withCredentials([usernamePassword(credentialsId: '82329510-1355-497f-828a-b8ff8b5f6a30', passwordVariable: 'AppKey', usernameVariable: 'AppSid')]) {
+				withCredentials([usernamePassword(credentialsId: '6179b564-811f-48a9-8b85-875076fadbf5', passwordVariable: 'AppKey', usernameVariable: 'AppSid')]) {
 					def apiUrl = params.apiUrl
 					bat "echo {\"AppSid\":\"%AppSid%\",\"AppKey\":\"%AppKey%\",\"BaseUrl\":\"%apiUrl%\" } > config.json"
 				}
