@@ -4,18 +4,18 @@ properties([
 
 node('windows2019') {
 	try {
-		env.SDK_VERSION = powershell(returnStdout: true, script:'$re = (ConvertFrom-Json -InputObject (New-Object System.Net.WebClient).DownloadString("https://api.aspose.cloud/v4.0/words/swagger/spec")).info.version -match "^(\\d+)\\.(\\d+)"; $version = $matches[1] + ("{0:d2}" -f [int]$matches[2]); echo ("v" + $version + ".0.0")').trim()
+		env.SDK_VERSION = powershell(returnStdout: true, script:'$re = (ConvertFrom-Json -InputObject (New-Object System.Net.WebClient).DownloadString("https://api.groupdocs.cloud/v1.0/assembly/swagger/spec")).info.version -match "^(\\d+)\\.(\\d+)"; $version = $matches[1] + ("{0:d2}" -f [int]$matches[2]); echo ("v" + $version + ".0.0")').trim()
 		
 		gitlabCommitStatus("checkout") {
 			stage('checkout'){
-				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: "**"]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '361885ba-9425-4230-950e-0af201d90547', url: 'https://git.auckland.dynabic.com/words-cloud/words-cloud-go.git']]])
+				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: "**"]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '361885ba-9425-4230-950e-0af201d90547', url: 'https://git.auckland.dynabic.com/assembly-cloud/groupdocs.assembly-cloud-sdk-go.git']]])
 			}
 		}
 		
 		gitlabCommitStatus("add version tag") {
 			stage('add version tag') {
 				withCredentials([usernamePassword(credentialsId: '361885ba-9425-4230-950e-0af201d90547', usernameVariable: 'gitUsername', passwordVariable: 'gitPass')]) {
-					env.gitRepoUrl = "https://%gitUsername%:%gitPass%@git.auckland.dynabic.com/words-cloud/words-cloud-go.git"
+					env.gitRepoUrl = "https://%gitUsername%:%gitPass%@git.auckland.dynabic.com/assembly-cloud/groupdocs.assembly-cloud-sdk-go.git"
 				}
 				
 				bat "git config user.email 'jenkins.aspose@gmail.com'"
