@@ -3,7 +3,7 @@
   "swagger": "2.0",
   "info": {
     "title": "GroupDocs.Assembly Cloud API Reference",
-    "version": "20.4"
+    "version": "21.1"
   },
   "host": "localhost",
   "basePath": "/v1.0",
@@ -82,7 +82,7 @@
               "$ref": "#/definitions/AssembleOptions"
             },
             "x-nullable": true,
-            "description": "Assemble Options. It should be JSON with TemplateName, SaveFormat, ReportData and etc.\n            "
+            "description": "Assemble Options. It should be JSON or XML with TemplateFileInfo, SaveFormat, ReportData and etc.\n            "
           }
         ],
         "responses": {
@@ -191,7 +191,7 @@
         "parameters": [
           {
             "type": "file",
-            "name": "File",
+            "name": "FileContent",
             "in": "formData",
             "required": true,
             "description": "File to upload"
@@ -842,7 +842,7 @@
           "description": "Gets or sets server datetime.",
           "format": "date-time"
         },
-        "InnerApiError": {
+        "InnerError": {
           "description": "Gets or sets inner error.",
           "$ref": "#/definitions/ApiError"
         }
@@ -948,16 +948,16 @@
       "description": "The error details",
       "additionalProperties": false,
       "required": [
-        "Date"
+        "ErrorDateTime"
       ],
       "properties": {
         "RequestId": {
           "type": "string",
-          "description": "The request id"
+          "description": "The request id."
         },
-        "Date": {
+        "ErrorDateTime": {
           "type": "string",
-          "description": "Date",
+          "description": "Error datetime.",
           "format": "date-time"
         }
       }

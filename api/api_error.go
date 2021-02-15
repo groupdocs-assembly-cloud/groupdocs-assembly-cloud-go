@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2020 Aspose Pty Ltd
+* Copyright (c) 2021 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -45,7 +45,7 @@ type ApiError struct {
 	DateTime time.Time `json:"DateTime,omitempty"`
 
 	// Gets or sets inner error.
-	InnerApiError *ApiError `json:"InnerApiError,omitempty"`
+	InnerError *ApiError `json:"InnerError,omitempty"`
 }
 type IApiError interface {
 	IsApiError() bool

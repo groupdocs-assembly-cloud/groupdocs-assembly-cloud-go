@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2020 Aspose Pty Ltd
+* Copyright (c) 2021 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -32,11 +32,11 @@ import (
 // The error details
 type ErrorDetails struct {
 
-	// The request id
+	// The request id.
 	RequestId string `json:"RequestId,omitempty"`
 
-	// Date
-	Date time.Time `json:"Date"`
+	// Error datetime.
+	ErrorDateTime time.Time `json:"ErrorDateTime"`
 }
 type IErrorDetails interface {
 	IsErrorDetails() bool

@@ -27,7 +27,7 @@ Builds a document using document template and XML or JSON data passed in request
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **assembleOptions** | [**AssembleOptions**](AssembleOptions.md)| Assemble Options. It should be JSON with TemplateName, SaveFormat, ReportData and etc.              | 
+  **assembleOptions** | [**AssembleOptions**](AssembleOptions.md)| Assemble Options. It should be JSON or XML with TemplateFileInfo, SaveFormat, ReportData and etc.              | 
 
 ### Return type
 
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UploadFile**
-> FilesUploadResult UploadFile(ctx, file, path, optional)
+> FilesUploadResult UploadFile(ctx, fileContent, path, optional)
 Upload file
 
 ### Required Parameters
@@ -407,7 +407,7 @@ Upload file
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **file** | ***os.File**| File to upload | 
+  **fileContent** | ***os.File**| File to upload | 
   **path** | **string**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -416,7 +416,7 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | ***os.File**| File to upload | 
+ **fileContent** | ***os.File**| File to upload | 
  **path** | **string**| Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header. | 
  **storageName** | **string**| Storage name | 
 

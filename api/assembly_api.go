@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2020 Aspose Pty Ltd
+* Copyright (c) 2021 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -55,7 +55,7 @@ func (w *AssemblyApiErrorResponse) Error() string {
 
 /* AssemblyApiService Builds a document using document template and XML or JSON data passed in request.
  * @param ctx context.Context for authentication, logging, tracing, etc.
- @param assembleOptions Assemble Options. It should be JSON with TemplateName, SaveFormat, ReportData and etc.             
+ @param assembleOptions Assemble Options. It should be JSON or XML with TemplateFileInfo, SaveFormat, ReportData and etc.             
  @return *os.File*/
 func (a *AssemblyApiService) AssembleDocument(ctx context.Context, assembleOptions IAssembleOptions) (  *http.Response, error) {
 	var (
@@ -909,12 +909,12 @@ func (a *AssemblyApiService) MoveFolder(ctx context.Context, destPath string, sr
 
 /* AssemblyApiService Upload file
  * @param ctx context.Context for authentication, logging, tracing, etc.
- @param file File to upload
+ @param fileContent File to upload
  @param path Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
  @param optional (nil or map[string]interface{}) with one or more of:
      @param "storageName" (string) Storage name
  @return FilesUploadResult*/
-func (a *AssemblyApiService) UploadFile(ctx context.Context, file *os.File, path string, localVarOptionals map[string]interface{}) ( FilesUploadResult,  *http.Response, error) {
+func (a *AssemblyApiService) UploadFile(ctx context.Context, fileContent *os.File, path string, localVarOptionals map[string]interface{}) ( FilesUploadResult,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody interface{}
@@ -957,11 +957,11 @@ func (a *AssemblyApiService) UploadFile(ctx context.Context, file *os.File, path
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	_file := file
-	if _file != nil {
-		fbs, _ := ioutil.ReadAll(_file)
-		_file.Close()
-		localFiles[_file.Name()] = fbs
+	_fileContent := fileContent
+	if _fileContent != nil {
+		fbs, _ := ioutil.ReadAll(_fileContent)
+		_fileContent.Close()
+		localFiles[_fileContent.Name()] = fbs
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localFiles)
 	if err != nil {
